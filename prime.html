@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function primeSum(minnum, maxnum){
+            var i, sum,j,flag;
+            flag = 1;
+            sum =0;
+            for(i=minnum;i<=maxnum;i++){
+                if(minnum == 2 || minnum == 3){
+                    sum+= i;        //in this case we check is minnum is 2 or 3 then we add it to sum
+                }
+                else{
+                    for(j=2;j<=parseInt(i/2);j++){
+                        if(i%j == 0){
+                            flag = 0;
+                            break;
+                        }
+                    }if(flag == 1){
+                        sum+= i;        //when we completely check that if i is not divided means that i is prime number
+                    }flag =1;
+                }
+            }
+            document.write("Sum of prime number between "+minnum+" and "+maxnum+" is "+ sum);
+        }
+
+        var minnum = Number(prompt("Enter minimum number"));
+        var maxnum = Number(prompt("Enter maximum number"));
+        primeSum(minnum, maxnum);
+    </script>
+</body>
+</html>
